@@ -44,10 +44,9 @@ const first = (array, callBack) => callBack(array[0])
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
-
-first(names, firstName => {
-  console.log('The first name in names is ' + firstName)
-})
+const logName = (firstName) => console.log('The first name in names is ' + firstName)
+first(names, logName)
+  // console.log('The first name in names is ' + firstName)
 
 
 
@@ -149,6 +148,8 @@ uniq(names, uniqArray => console.log(`The new names array with all the duplicate
 
 // CODE HERE 
 
+const each = (nameArray, callback) => nameArray.forEach((element, i) => callback(element, i))
+
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -158,6 +159,9 @@ uniq(names, uniqArray => console.log(`The new names array with all the duplicate
 */
 
 // CODE HERE
+
+each(names,(item, index) => console.log(`The item at index ${index} is ${item}.`)) 
+
 
 
 ////////// PROBLEM 7 //////////
@@ -192,14 +196,21 @@ var users = [
 
 // CODE HERE 
 
+const getUserById = (users, userID, cb) => {
+  for (let i = 0; i < users.length; i++){
+   if (users[i].id === userID){
+    cb(users[i])
+    }
+  }
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
